@@ -1,4 +1,7 @@
-let suggestionsList = ["philosophy", "fiction", "fantasy", "history", "science", "biography", "mystery", "romance"];
+let suggestionsList = [
+    "philosophy", "fiction", "fantasy", "history", "science", 
+    "biography", "mystery", "romance"
+];
 let shownBookIds = [];
 
 function showSuggestions() {
