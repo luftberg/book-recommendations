@@ -1,3 +1,5 @@
+let shownBookIds = [];  // Track shown book IDs
+
 async function findBooks() {
     let input = document.getElementById("keywordInput").value.trim().toLowerCase();
     let genre = document.getElementById("genreSelect").value.trim().toLowerCase();
@@ -8,7 +10,7 @@ async function findBooks() {
     let searchQuery = input;
     if (genre) searchQuery += ` ${genre}`;
 
-    let url = `https://openlibrary.org/search.json?q=${encodeURIComponent(searchQuery)}&limit=10`;
+    let url = `https://openlibrary.org/search.json?q=${encodeURIComponent(searchQuery)}&limit=50`;  // Get more results
 
     try {
         let response = await fetch(url);
@@ -22,7 +24,18 @@ async function findBooks() {
             return;
         }
 
-        data.docs.forEach(book => {
+        // Filter out previously shown books
+        let newBooks = data.docs.filter(book => !shownBookIds.includes(book.cover_i));
+
+        if (newBooks.length === 0) {
+            resultsDiv.innerHTML = "<p>No new books available. Try a different search or wait a while.</p>";
+            return;
+        }
+
+        // Show the first 10 books that are not repeated
+        let topBooks = newBooks.slice(0, 10);
+
+        topBooks.forEach(book => {
             let title = book.title || "Unknown Title";
             let author = book.author_name ? book.author_name.join(", ") : "Unknown Author";
             let cover = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : "https://via.placeholder.com/128x192?text=No+Cover";
@@ -35,6 +48,9 @@ async function findBooks() {
                     </div>
                 </div>
             `;
+
+            // Add the shown book ID to the tracked list
+            shownBookIds.push(book.cover_i);
         });
 
     } catch (error) {
