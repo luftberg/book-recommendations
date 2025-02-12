@@ -21,6 +21,12 @@
             <option value="romance">Romance</option>
             <option value="horror">Horror</option>
         </select>
+        <div class="container">
+    <h1>Find Your Next Read</h1>
+    <input type="text" id="keywordInput" placeholder="Type a keyword..." oninput="showSuggestions()">
+    <div id="suggestions" class="suggestions"></div>  <!-- Suggestions container -->
+    <button onclick="findBooks()">Search</button>
+</div>
         <button onclick="findBooks()">Search</button>
         <div id="results"></div>
     </div>
