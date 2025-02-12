@@ -3,22 +3,32 @@ body {
     color: white;
     font-family: 'Inter', sans-serif;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
     max-width: 600px;
     margin: 50px auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em;  /* Bigger title font */
+    margin-bottom: 20px;
 }
 
 input, select, button {
-    padding: 10px;
-    margin: 10px;
+    padding: 12px;  /* Slightly larger padding for better touch/focus */
+    margin: 10px 0;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1.1em;  /* Larger font size for readability */
+    width: 100%;
+    box-sizing: border-box;  /* Ensures elements fit well inside the container */
 }
 
 input, select {
-    width: 70%;
     background: #222;
     color: white;
 }
@@ -27,6 +37,11 @@ button {
     background: orange;
     color: black;
     cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #ff8c00;  /* Hover effect for the button */
 }
 
 #results {
@@ -37,12 +52,16 @@ button {
 .book {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .book img {
     width: 80px;
     height: auto;
     margin-right: 15px;
-    border-radius: 5px;
+    border-radius: 8px;
+}
+
+.book p {
+    margin: 0;
 }
