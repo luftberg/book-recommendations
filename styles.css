@@ -7,13 +7,14 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start;
+    min-height: 100vh;
     text-align: center;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     max-width: 500px;
     margin: 0 auto;
 }
@@ -26,6 +27,7 @@ h1 {
     line-height: 1.1;
 }
 
+/* Input, Select, and Button */
 input, select, button {
     width: 100%;
     padding: 12px;
@@ -36,6 +38,7 @@ input, select, button {
     color: white;
     font-size: 1rem;
     font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
 }
 
 input::placeholder {
@@ -78,32 +81,41 @@ select {
     background-color: #444;
 }
 
-/* Book Results */
+/* Book Results - Now in a Vertical, TikTok-Like Scroll */
 #results {
     margin-top: 30px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column; /* One column */
+    align-items: center; /* Centering */
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
 }
 
+/* Book Card */
 .book {
-    width: 150px;
-    margin: 10px;
+    width: 100%;  /* Full width */
+    max-width: 350px; /* Prevents it from getting too big */
     background-color: #1d1d1d;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 15px;
+    border-radius: 12px;
     text-align: center;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 0.5s forwards;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
 }
 
+/* Book Cover */
 .book img {
     width: 100%;
-    border-radius: 5px;
+    max-height: 400px;
+    border-radius: 8px;
     object-fit: cover;
 }
 
+/* Book Text */
 .book p {
     margin-top: 10px;
     font-size: 1rem;
@@ -114,6 +126,12 @@ select {
     color: #FFB84D;
 }
 
+/* Scrollable Page */
+html, body {
+    height: 100%;
+    overflow-y: auto;
+}
+
 /* Book Fade-In Animation */
 @keyframes fadeIn {
     to {
@@ -122,10 +140,9 @@ select {
     }
 }
 
-/* Hover effect on book card */
+/* Hover Effect on Books */
 .book:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease;
+    transform: scale(1.03);
 }
 
 /* Responsive Design */
@@ -137,20 +154,4 @@ select {
     input, select, button {
         font-size: 0.9rem;
     }
-}
-
-/* Fix for the input and button alignment */
-input, button, select {
-    width: 100%;  /* Ensures they all align perfectly */
-    box-sizing: border-box; /* Prevents any unwanted overflow or misalignment */
-}
-
-/* Adjusting margin for book result container */
-#results {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 15px;
-    flex-wrap: wrap;
 }
