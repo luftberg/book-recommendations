@@ -138,3 +138,19 @@ select {
         font-size: 0.9rem;
     }
 }
+
+/* Fix for the input and button alignment */
+input, button, select {
+    width: 100%;  /* Ensures they all align perfectly */
+    box-sizing: border-box; /* Prevents any unwanted overflow or misalignment */
+}
+
+/* Adjusting margin for book result container */
+#results {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+}
