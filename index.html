@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Find Your Next Read</h1>
+        <input type="text" id="keywordInput" placeholder="Enter keywords (e.g., mystery, magic)">
+        <select id="genreSelect">
+            <option value="">Any Genre</option>
+            <option value="fiction">Fiction</option>
+            <option value="nonfiction">Non-fiction</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="mystery">Mystery</option>
+            <option value="science">Science</option>
+            <option value="history">History</option>
+            <option value="romance">Romance</option>
+            <option value="horror">Horror</option>
+        </select>
+        <button onclick="findBooks()">Search</button>
+        <div id="results"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

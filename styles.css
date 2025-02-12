@@ -1,0 +1,48 @@
+body {
+    background-color: #121212;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+input, select, button {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+input, select {
+    width: 70%;
+    background: #222;
+    color: white;
+}
+
+button {
+    background: orange;
+    color: black;
+    cursor: pointer;
+}
+
+#results {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.book {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.book img {
+    width: 80px;
+    height: auto;
+    margin-right: 15px;
+    border-radius: 5px;
+}
