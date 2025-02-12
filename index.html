@@ -4,32 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Recommender</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Find Your Next Read</h1>
-        <input type="text" id="keywordInput" placeholder="Enter keywords (e.g., mystery, magic)">
+        
+        <!-- Search Bar -->
+        <input type="text" id="keywordInput" placeholder="Type a keyword..." oninput="showSuggestions()">
+        
+        <!-- Suggestions (appears dynamically) -->
+        <div id="suggestions" class="suggestions"></div>
+        
+        <!-- Genre Dropdown -->
         <select id="genreSelect">
-            <option value="">Any Genre</option>
+            <option value="">Select a genre</option>
+            <option value="philosophy">Philosophy</option>
             <option value="fiction">Fiction</option>
-            <option value="nonfiction">Non-fiction</option>
             <option value="fantasy">Fantasy</option>
-            <option value="mystery">Mystery</option>
-            <option value="science">Science</option>
             <option value="history">History</option>
+            <option value="science">Science</option>
+            <option value="biography">Biography</option>
+            <option value="mystery">Mystery</option>
             <option value="romance">Romance</option>
-            <option value="horror">Horror</option>
         </select>
-        <div class="container">
-    <h1>Find Your Next Read</h1>
-    <input type="text" id="keywordInput" placeholder="Type a keyword..." oninput="showSuggestions()">
-    <div id="suggestions" class="suggestions"></div>  <!-- Suggestions container -->
-    <button onclick="findBooks()">Search</button>
-</div>
+        
+        <!-- Search Button -->
         <button onclick="findBooks()">Search</button>
-        <div id="results"></div>
     </div>
+
+    <!-- Results will be displayed below -->
+    <div id="results"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
