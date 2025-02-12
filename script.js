@@ -62,13 +62,13 @@ async function findBooks() {
         }
 
         let topBooks = newBooks.slice(0, 10);
-        topBooks.forEach(book => {
+        topBooks.forEach((book, index) => {
             let title = book.title || "Unknown Title";
             let author = book.author_name ? book.author_name.join(", ") : "Unknown Author";
             let cover = book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : "https://via.placeholder.com/128x192?text=No+Cover";
 
             resultsDiv.innerHTML += `
-                <div class="book">
+                <div class="book" style="animation-delay: ${index * 0.1}s;">
                     <img src="${cover}" alt="Book Cover">
                     <div>
                         <p><strong>${title}</strong> by ${author}</p>
