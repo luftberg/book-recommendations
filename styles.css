@@ -14,25 +14,21 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;  /* Slightly smaller font size */
+    font-size: 2.5em;
     margin-bottom: 20px;
-    text-align: center;
-    white-space: nowrap;  /* Prevents the title from breaking into multiple lines */
-    overflow: hidden;     /* Hides anything that goes beyond the container */
-    text-overflow: ellipsis;  /* Adds "..." if the title is too long */
 }
 
 input, select, button {
-    padding: 12px;  /* Slightly larger padding for better touch/focus */
+    padding: 12px;
     margin: 10px 0;
     border: none;
     border-radius: 8px;
-    font-size: 1.1em;  /* Larger font size for readability */
+    font-size: 1.1em;
     width: 100%;
-    box-sizing: border-box;  /* Ensures elements fit well inside the container */
+    box-sizing: border-box;
 }
 
-input, select {
+input {
     background: #222;
     color: white;
 }
@@ -45,27 +41,38 @@ button {
 }
 
 button:hover {
-    background: #ff8c00;  /* Hover effect for the button */
+    background: #ff8c00;
 }
 
-#results {
-    margin-top: 20px;
+.suggestions {
+    margin-top: 10px;
     text-align: left;
-}
-
-.book {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.book img {
-    width: 80px;
-    height: auto;
-    margin-right: 15px;
+    display: none;  /* Hide suggestions initially */
+    background-color: rgba(255, 165, 0, 0.1);  /* Medium opacity background */
+    padding: 10px;
     border-radius: 8px;
+    box-sizing: border-box;
+    max-width: 100%;
+    position: absolute;
+    width: calc(100% - 24px); /* Same width as the input field */
+    animation: blurToClear 0.3s ease-out;
 }
 
-.book p {
-    margin: 0;
+.suggestion-item {
+    padding: 8px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: rgba(255, 165, 0, 0.3);  /* Highlight on hover */
+}
+
+@keyframes blurToClear {
+    0% {
+        filter: blur(4px);
+    }
+    100% {
+        filter: blur(0px);
+    }
 }
