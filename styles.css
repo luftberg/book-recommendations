@@ -14,8 +14,12 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;  /* Bigger title font */
+    font-size: 2.5em;  /* Slightly smaller font size */
     margin-bottom: 20px;
+    text-align: center;
+    white-space: nowrap;  /* Prevents the title from breaking into multiple lines */
+    overflow: hidden;     /* Hides anything that goes beyond the container */
+    text-overflow: ellipsis;  /* Adds "..." if the title is too long */
 }
 
 input, select, button {
