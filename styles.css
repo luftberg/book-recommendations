@@ -1,157 +1,71 @@
-/* General Styles */
 body {
-    font-family: 'Inter', sans-serif;
     background-color: #121212;
     color: white;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    text-align: center;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .container {
-    width: 90%;
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.5em;  /* Slightly smaller font size */
     margin-bottom: 20px;
-    letter-spacing: 1px;
-    word-wrap: break-word;
-    line-height: 1.1;
+    text-align: center;
+    white-space: nowrap;  /* Prevents the title from breaking into multiple lines */
+    overflow: hidden;     /* Hides anything that goes beyond the container */
+    text-overflow: ellipsis;  /* Adds "..." if the title is too long */
 }
 
-/* Input, Select, and Button */
 input, select, button {
-    width: 100%;
-    padding: 12px;
+    padding: 12px;  /* Slightly larger padding for better touch/focus */
     margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background-color: #222;
-    color: white;
-    font-size: 1rem;
-    font-family: 'Inter', sans-serif;
-    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;  /* Larger font size for readability */
+    width: 100%;
+    box-sizing: border-box;  /* Ensures elements fit well inside the container */
 }
 
-input::placeholder {
-    color: #888;
+input, select {
+    background: #222;
+    color: white;
 }
 
 button {
-    background-color: #FFB84D;
-    color: white;
+    background: orange;
+    color: black;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
 }
 
 button:hover {
-    background-color: #FF9A2F;
+    background: #ff8c00;  /* Hover effect for the button */
 }
 
-select {
-    background-color: #222;
-}
-
-/* Suggestions Dropdown */
-.suggestions {
-    position: absolute;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 5px;
-    margin-top: -5px;
-    z-index: 10;
-    display: none;
-}
-
-.suggestions .suggestion-item {
-    padding: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.suggestions .suggestion-item:hover {
-    background-color: #444;
-}
-
-/* Book Results - Now in a Vertical, TikTok-Like Scroll */
 #results {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column; /* One column */
-    align-items: center; /* Centering */
-    gap: 20px;
-    width: 100%;
-    max-width: 500px;
+    margin-top: 20px;
+    text-align: left;
 }
 
-/* Book Card */
 .book {
-    width: 100%;  /* Full width */
-    max-width: 350px; /* Prevents it from getting too big */
-    background-color: #1d1d1d;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 0.5s forwards;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-/* Book Cover */
 .book img {
-    width: 100%;
-    max-height: 400px;
+    width: 80px;
+    height: auto;
+    margin-right: 15px;
     border-radius: 8px;
-    object-fit: cover;
 }
 
-/* Book Text */
 .book p {
-    margin-top: 10px;
-    font-size: 1rem;
-    line-height: 1.3;
-}
-
-.book strong {
-    color: #FFB84D;
-}
-
-/* Scrollable Page */
-html, body {
-    height: 100%;
-    overflow-y: auto;
-}
-
-/* Book Fade-In Animation */
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Hover Effect on Books */
-.book:hover {
-    transform: scale(1.03);
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    h1 {
-        font-size: 2rem;
-    }
-
-    input, select, button {
-        font-size: 0.9rem;
-    }
+    margin: 0;
 }
