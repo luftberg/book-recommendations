@@ -55,7 +55,7 @@ button:hover {
 
 .book {
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Aligns the content at the top of the book */
     margin-bottom: 20px;
 }
 
@@ -66,6 +66,18 @@ button:hover {
     border-radius: 8px;
 }
 
+.book div {
+    text-align: left;
+}
+
 .book p {
     margin: 0;
+}
+
+.book p strong {
+    font-weight: bold;
+}
+
+.book p.author {
+    color: #888; /* Darker shade for the author text */
 }
