@@ -48,6 +48,15 @@ button:hover {
     background: #59788E;  /* Hover effect for the button */
 }
 
+button.random {
+    background-color: #FF8C00;  /* Orange color for the Random button */
+    color: black;
+}
+
+button.random:hover {
+    background-color: #FF7A00;  /* Slightly darker orange on hover */
+}
+
 #results {
     margin-top: 20px;
     text-align: left;
