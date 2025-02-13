@@ -1,8 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-import json
-import time
+from flask import Flask, request, jsonify
 
+app = Flask(__name__)
+
+# Function to scrape Goodreads for ratings
 def get_goodreads_rating(book_title):
     search_url = f"https://www.goodreads.com/search?q={book_title.replace(' ', '+')}"
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -24,24 +26,19 @@ def get_goodreads_rating(book_title):
     else:
         return None
 
-def update_ratings(book_titles):
-    try:
-        with open("ratings.json", "r") as file:
-            ratings = json.load(file)
-    except (FileNotFoundError, json.JSONDecodeError):
-        ratings = {}
+# API endpoint to fetch ratings for multiple books
+@app.route('/getRatings', methods=['POST'])
+def get_ratings():
+    data = request.get_json()
+    titles = data.get('titles', [])
+    
+    ratings = {}
+    for title in titles:
+        rating = get_goodreads_rating(title)
+        if rating:
+            ratings[title] = rating
+    
+    return jsonify({'ratings': ratings})
 
-    for title in book_titles:
-        if title not in ratings:
-            print(f"Fetching rating for: {title}")
-            rating = get_goodreads_rating(title)
-            if rating:
-                ratings[title] = rating
-            time.sleep(2)  # Prevent being blocked
-
-    with open("ratings.json", "w") as file:
-        json.dump(ratings, file, indent=4)
-
-# Example usage:
-book_list = ["The Hobbit", "1984", "To Kill a Mockingbird"]
-update_ratings(book_list)
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=5000)  # Make the app available to all devices on the local network
